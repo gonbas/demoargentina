@@ -8,6 +8,9 @@
                         {% set hasImage = false %}
                         {% for key,image in product.images %}
                         <img class="gallery-image {% if not hasImage and image.main %}visible{% endif %}" id="image-{% if not hasImage and image.main %}main {% set hasImage = true %}{% else %}{{ key + 1 }}{% endif %}" src="{{ image.full }}" data-zoom-image="{{ image.full }}">
+                        {% if image.main %}
+                        <img class="gallery-image" id="image-{{ key + 1 }}" src="{{ image.full }}" data-zoom-image="{{ image.full }}">
+                        {% endif %}
                         {% endfor %}
 
                     </div>
@@ -22,7 +25,7 @@
                             {% for key,image in product.images %}
 
                             <div class="item">
-                                <a class="thumb-link" href="javascript:void(0);" data-image-index="{{ key + 1 }}" data-image="{{ image.full }}" data-zoom-image="{{ image.full }}">
+                                <a class="thumb-link" href="javascript:void(0);" data-image-index="{{ key + 1 }}" data-image="{{ image.full }}" data-zoom-image="{{ image.full }}" data-color="{{ image.groupid }}">
                                     <img class="img-responsive" src="{{ image.medium }}" />
                                 </a>
                             </div>
