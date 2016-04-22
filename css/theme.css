@@ -9,6 +9,10 @@
         margin-top: 20px;
 }
 
+.header-wrapper .header-container .main-header .left-header {
+    width: 320px;
+}
+
 /* Alerts */
 .alert-global {
     top: 10px;
